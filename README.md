@@ -1,6 +1,6 @@
 acts_as_status
 ==============
-<h1>How to user</h1>
+<h1>How to use</h1>
 <p>In your model you can add acts_as_status like this</p>
 class Model <  ActiveRecord::Base
   <p>acts_as_status :attribute, ["public", "private", "others"]		</p>
