@@ -5,8 +5,8 @@ module ActsAsStatus
     
     instance_eval do
 
-      define_method "#{field}" do          
-        ActsAs::Status.new(instance_variable_get("@#{field}"), states.clone)
+      define_method field do          
+        ActsAs::Status.new(read_attribute(field), states.clone)
       end
 
       states.each do |name|
@@ -17,7 +17,7 @@ module ActsAsStatus
 
       define_method "#{field}=" do | value |
         s = ActsAs::Status.default_convert(value, states.clone)
-        instance_variable_set("@#{field}", s.state)          
+        write_attribute(field, s.state)          
       end
     end   
 

@@ -3,11 +3,10 @@ require 'spec_helper'
 
 describe ActsAsStatus do 
   before do 
-    @md = ModelDemo.new
+    @md = ModelDemoSqlite.new
   end
 
-  it "model status respond" do 
-    debugger
+  it "model status respond" do     
     @md.should respond_to("status_failer?")
     @md.should respond_to("status_warning?")
     @md.should respond_to("status_success?")
@@ -29,12 +28,13 @@ describe ActsAsStatus do
   end
 
   it "find all status" do 
-    ModelDemo.status_all.should eq([:failer, :warning, :success])
+    ModelDemoSqlite.status_all.should eq([:failer, :warning, :success])
   end
 
   it "find status index value" do 
-    ModelDemo.status_by_index(:failer).should eq(1)
-    ModelDemo.status_by_index(:warning).should eq(2)
-    ModelDemo.status_by_index(:success).should eq(3)
+    ModelDemoSqlite.status_by_index(:failer).should eq(1)
+    ModelDemoSqlite.status_by_index(:warning).should eq(2)
+    ModelDemoSqlite.status_by_index(:success).should eq(3)
   end
+  
 end

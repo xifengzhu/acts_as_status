@@ -1,29 +1,33 @@
-# ActsAsStatus
+## acts_as_status
+==============
+### How to use
+In your model you can add acts_as_status like this
 
-TODO: Write a gem description
+    class Model <  ActiveRecord::Base
+      extend ActsAsStatus
+      
+      acts_as_status :field, ["public", "private", "others"]
+    end
 
-## Installation
+or
 
-Add this line to your application's Gemfile:
+    class Model
+      include Mongoid::Document
+      extend ActsAsStatus
 
-    gem 'acts_as_status'
+      acts_as_status :field, ["public", "private", "others"]
+    end
 
-And then execute:
+when you set value to your model attribute
+for example:
 
-    $ bundle
+    Model.last.field == "public" or Model.last.field == 1
 
-Or install it yourself as:
+when you get the value
 
-    $ gem install acts_as_status
+    Model.last.field
 
-## Usage
+you can get this:
 
-TODO: Write usage instructions here
+    <Status:0x00000005ac32a8 @defaults=[:invalid, :lovers, :public, :private], @state=2>
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/acts_as_status/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
