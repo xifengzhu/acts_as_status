@@ -1,18 +1,37 @@
-acts_as_status
+## acts_as_status
 ==============
-<h1>How to use</h1>
-<p>In your model you can add acts_as_status like this</p>
-class Model <  ActiveRecord::Base
-  <p>acts_as_status :attribute, ["public", "private", "others"]		</p>
-<p>end</p>
+### Installation
 
-<p>when you set value to your model attribute</p>
-<h4>for example: </h4> 
-</p>Model.last.attribute == "public" or Model.last.attribute == 1 </p>
+    gem 'acts_as_status', :git => "git@github.com:huxinghai1988/acts_as_status.git"
 
-<p>when you get the value</p>
-<p>Model.last.attribute</p>
+### How to use
+In your model you can add acts_as_status like this
 
-<p>you can get this:</p>
- <Status:0x00000005ac32a8 @defaults=[:invalid, :lovers, :public, :private], @state=2>
+    class Model <  ActiveRecord::Base
+      extend ActsAsStatus
+      
+      acts_as_status :field, ["public", "private", "others"]
+    end
+
+or
+
+    class Model
+      include Mongoid::Document
+      extend ActsAsStatus
+
+      acts_as_status :field, ["public", "private", "others"]
+    end
+
+when you set value to your model attribute
+for example:
+
+    Model.last.field == "public" or Model.last.field == 1
+
+when you get the value
+
+    Model.last.field
+
+you can get this:
+
+    <Status:0x00000005ac32a8 @defaults=[:invalid, :lovers, :public, :private], @state=2>
 
