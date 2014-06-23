@@ -2,7 +2,7 @@
 ==============
 ### Installation
 
-    gem 'acts_as_status', :git => "git@github.com:huxinghai1988/acts_as_status.git"
+    gem 'acts_as_status', :git => "git@github.com:xifengzhu/acts_as_status.git"
 
 ### How to use
 In your model you can add acts_as_status like this
